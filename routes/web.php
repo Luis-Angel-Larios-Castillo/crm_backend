@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SuperAdmin\SistemasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,10 @@ use Illuminate\Support\Facades\Route;
 });
  */
 
- Route::get('/', function () {
-    return view('login');
-});
- 
+Route::resource('sistemas', SistemasController::class);
+
+Route::view('/', 'SuperAdmin/Dashboard/Dashboard')->name('Dashboard');
+
+Route::view('/productos_globales','SuperAdmin/ProductosGloables/ProductosGlobales');
+Route::view('/usuarios','SuperAdmin/Usuarios/Usuarios')->name('usuarios');
+Route::view('/galerias','SuperAdmin/Galerias/Galerias')->name('galerias');

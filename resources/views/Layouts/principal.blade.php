@@ -14,32 +14,34 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="{{URL::asset('lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-    <link href="{{URL::asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}" rel="stylesheet" />
+    <link href="{{ URL::asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css') }}" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="{{URL::asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 
     <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css" rel="stylesheet">
 
 
-   
+
 </head>
 
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Cargando...</span>
             </div>
@@ -55,21 +57,35 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                        <img class="rounded-circle" src="img/user.jpg" alt=""
+                            style="width: 40px; height: 40px;">
+                        <div
+                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
+                        </div>
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Admin</h6>
-                        <span>Luis Angel</span>
+                        <span>{{ auth()->user()->name }}</span>
+                        @if (session('status'))
+                            <span>{{ session('status') }}</span>
+                        @endif
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="/" class="nav-item nav-link  {{ Route::currentRouteName()=='Dashboard'?'active':'' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="/galerias" class="nav-item nav-link {{ Route::currentRouteName()=='galerias'?'active':'' }}"><i class="fa fa-images me-2"></i>Galerias y Avisos</a>
-                    <a href="/sistemas" class="nav-item nav-link {{ Route::currentRouteName()=='sistemas.index'?'active':'' }}"><i class="fa fa-th me-2"></i>Sistemas</a>
-                    <a href="/usuarios" class="nav-item nav-link {{ Route::currentRouteName()=='usuarios'?'active':'' }}"><i class="fa fa-users me-2"></i>Usuarios</a>
+                    <a href="/"
+                        class="nav-item nav-link  {{ Route::currentRouteName() == 'Dashboard' ? 'active' : '' }}"><i
+                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="/galerias"
+                        class="nav-item nav-link {{ Route::currentRouteName() == 'galerias' ? 'active' : '' }}"><i
+                            class="fa fa-images me-2"></i>Galerias y Avisos</a>
+                    <a href="/sistemas"
+                        class="nav-item nav-link {{ Route::currentRouteName() == 'sistemas.index' ? 'active' : '' }}"><i
+                            class="fa fa-th me-2"></i>Sistemas</a>
+                    <a href="/usuarios"
+                        class="nav-item nav-link {{ Route::currentRouteName() == 'usuarios' ? 'active' : '' }}"><i
+                            class="fa fa-users me-2"></i>Usuarios</a>
                     {{-- {{ Route::currentRouteName() }} --}}
-                   {{--  <div class="nav-item dropdown">
+                    {{--  <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Productos</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="/productos_globales" class="dropdown-item">Productos Globales</a>
@@ -77,11 +93,11 @@
                             <a href="element.html" class="dropdown-item">Other Elements</a>
                         </div>
                     </div> --}}
-                    
-                   {{--  <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+
+                    {{--  <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> --}}
-                  {{--   <div class="nav-item dropdown">
+                    {{--   <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="signin.html" class="dropdown-item">Sign In</a>
@@ -118,7 +134,8 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -128,7 +145,8 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -138,7 +156,8 @@
                             <hr class="dropdown-divider">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="img/user.jpg" alt=""
+                                        style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0">Jhon send you a message</h6>
                                         <small>15 minutes ago</small>
@@ -154,7 +173,8 @@
                             <i class="fa fa-bell me-lg-2"></i>
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div
+                            class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <h6 class="fw-normal mb-0">Profile updated</h6>
                                 <small>15 minutes ago</small>
@@ -175,13 +195,18 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
+                                style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">{{ auth()->user()->name }}</span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                        <div
+                            class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <form action="/logout" method="POST">
+                                @csrf
+                                <a onclick="this.closest('form').submit()" class="dropdown-item">Cerrar Sessión</a>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -219,21 +244,21 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{URL::asset('lib/chart/chart.min.js')}}"></script>
-    <script src="{{URL::asset('lib/easing/easing.min.js')}}"></script>
-    <script src="{{URL::asset('lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{URL::asset('lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{URL::asset('lib/tempusdominus/js/moment.min.js')}}"></script>
-    <script src="{{URL::asset('lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
-    <script src="{{URL::asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <script src="{{ URL::asset('lib/chart/chart.min.js') }}"></script>
+    <script src="{{ URL::asset('lib/easing/easing.min.js') }}"></script>
+    <script src="{{ URL::asset('lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ URL::asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ URL::asset('lib/tempusdominus/js/moment.min.js') }}"></script>
+    <script src="{{ URL::asset('lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+    <script src="{{ URL::asset('lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="{{URL::asset('js/datatable.js')}}"></script>
+    <script src="{{ URL::asset('js/datatable.js') }}"></script>
 
 
     <!-- Template Javascript -->
-    <script src="{{URL::asset('js/main.js')}}"></script>
+    <script src="{{ URL::asset('js/main.js') }}"></script>
 </body>
 
 </html>
